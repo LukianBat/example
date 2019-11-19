@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Movavi Geophysics</string>
+    <string name="main_load_string">Loading</string>
+    <string name="main_calc_string">Calculating</string>
+</resources>
