@@ -6,4 +6,5 @@
     <!--Result fragment-->
     <string name="result_fragment_title">Result</string>
     <string name="main_result_btn_text">Результат</string>
+    <string name="start_btn_string">start</string>
 </resources>
