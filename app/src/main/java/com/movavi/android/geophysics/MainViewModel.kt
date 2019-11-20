@@ -25,20 +25,27 @@ class MainViewModel : ViewModel() {
         loadDataFromFile()
     }
 
+    // данные получены
     fun loadingFinished(holes: ArrayList<Hole>) {
+        // вывод в лог, полученных данных
         for (hole in holes) {
             Log.d("DEBUG", "${hole.params}")
         }
 
+        // загрузка завершена
         _isCalculating.value = true
     }
 
+    // получение и разбор json
     fun loadDataFromFile() {
         loader.getConfig().enqueue(object : Callback<Config> {
+
+            // на ошибку ничего не делаем (лог)
             override fun onFailure(call: Call<Config>, t: Throwable) {
                 Log.d("DEBUG", "error downloading")
             }
 
+            // объект получен и разобран -> loadingFinished
             override fun onResponse(call: Call<Config>, response: Response<Config>) {
                 response.body()?.let {
                     loadingFinished(it.holes)
