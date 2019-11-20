@@ -7,7 +7,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/st_margin"
-        tools:context=".result.ResultFragment">
+        tools:context=".presentation.result.ResultFragment">
 
         <TextView
             android:id="@+id/result_txt"

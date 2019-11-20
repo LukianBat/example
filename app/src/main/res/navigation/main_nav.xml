@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
-        android:name="com.movavi.android.geophysics.result.ResultFragment"
+        android:name="com.movavi.android.geophysics.presentation.result.ResultFragment"
         android:label="ResultFragment" >
         <action
             android:id="@+id/action_resultFragment_to_startFragment"
@@ -22,7 +22,7 @@
     </fragment>
     <fragment
         android:id="@+id/startFragment"
-        android:name="com.movavi.android.geophysics.start.StartFragment"
+        android:name="com.movavi.android.geophysics.presentation.start.StartFragment"
         android:label="StartFragment" >
         <action
             android:id="@+id/action_startFragment_to_mainFragment"
