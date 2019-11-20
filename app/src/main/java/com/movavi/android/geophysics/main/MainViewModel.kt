@@ -1,4 +1,4 @@
-package com.movavi.android.geophysics
+package com.movavi.android.geophysics.main
 
 import android.util.Log
 import androidx.lifecycle.LiveData
@@ -11,7 +11,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class MainViewModel : ViewModel() {
+class MainViewModel : ViewModel(){
 
     private var _isCalculating = MutableLiveData<Boolean>()
     val isCalculating: LiveData<Boolean>
@@ -25,27 +25,20 @@ class MainViewModel : ViewModel() {
         loadDataFromFile()
     }
 
-    // данные получены
     fun loadingFinished(holes: ArrayList<Hole>) {
-        // вывод в лог, полученных данных
         for (hole in holes) {
             Log.d("DEBUG", "${hole.params}")
         }
 
-        // загрузка завершена
         _isCalculating.value = true
     }
 
-    // получение и разбор json
     fun loadDataFromFile() {
         loader.getConfig().enqueue(object : Callback<Config> {
-
-            // на ошибку ничего не делаем (лог)
             override fun onFailure(call: Call<Config>, t: Throwable) {
                 Log.d("DEBUG", "error downloading")
             }
 
-            // объект получен и разобран -> loadingFinished
             override fun onResponse(call: Call<Config>, response: Response<Config>) {
                 response.body()?.let {
                     loadingFinished(it.holes)
@@ -53,5 +46,6 @@ class MainViewModel : ViewModel() {
             }
         })
     }
+
 
 }
