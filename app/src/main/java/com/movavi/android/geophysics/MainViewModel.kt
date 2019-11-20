@@ -4,9 +4,10 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.movavi.android.geophysics.load.NetLoader
-import com.movavi.android.geophysics.load.config.Config
-import com.movavi.android.geophysics.load.config.Hole
+import com.movavi.android.geophysics.data.NetLoader
+import com.movavi.android.geophysics.data.config.ApiFactory
+import com.movavi.android.geophysics.data.config.Config
+import com.movavi.android.geophysics.data.config.Hole
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -21,7 +22,7 @@ class MainViewModel : ViewModel() {
 
     init {
         _isCalculating.value = false
-        loader = NetLoader.create()
+        loader = ApiFactory.createApi()
         loadDataFromFile()
     }
 
