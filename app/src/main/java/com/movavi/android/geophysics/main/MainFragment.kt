@@ -42,8 +42,18 @@ class MainFragment : Fragment() {
                 binding.mainLoadProgress.visibility = View.INVISIBLE
                 binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
                 binding.mainCalcProgress.visibility = View.VISIBLE
+                binding.mainBtnResult.isEnabled = true
             }
         })
+
+        binding.mainBtnResult.setOnClickListener {
+            openResult()
+        }
+
         return binding.root
+    }
+
+    private fun openResult(){
+        this.findNavController().navigate(R.id.action_mainFragment_to_resultFragment)
     }
 }
