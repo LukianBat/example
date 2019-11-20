@@ -42,22 +42,12 @@ class MainFragment : Fragment() {
 
         // Загрузка завершена
         viewModel.isDownloadFinished.observe(this, Observer {
-            if (it) {
-                binding.mainLoadContainer.setCardBackgroundColor(Color.GRAY)
-                binding.mainLoadProgress.visibility = View.INVISIBLE
-                binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
-                binding.mainCalcProgress.visibility = View.VISIBLE
-
-            }
+            if (it) downloadFinished()
         })
 
         // подсчет окончен
         viewModel.isReady.observe(this, Observer {
-            if (it) {
-                binding.mainCalcProgress.visibility = View.INVISIBLE
-                binding.mainCalcContainer.setCardBackgroundColor(Color.GRAY)
-                binding.mainBtnResult.isEnabled = true
-            }
+            if (it) calculatingReady()
         })
 
 
@@ -67,7 +57,7 @@ class MainFragment : Fragment() {
                 .results.value = it
         })
 
-
+        // переход к результатам
         binding.mainBtnResult.setOnClickListener {
             openResult()
         }
@@ -75,10 +65,23 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
+    // логика готовности оригинальных данных
+    private fun downloadFinished() {
+        binding.mainLoadContainer.setCardBackgroundColor(Color.GRAY)
+        binding.mainLoadProgress.visibility = View.INVISIBLE
+        binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
+        binding.mainCalcProgress.visibility = View.VISIBLE
+    }
+
+    // логика по готовности математики
+    private fun calculatingReady() {
+        binding.mainCalcProgress.visibility = View.INVISIBLE
+        binding.mainCalcContainer.setCardBackgroundColor(Color.GRAY)
+        binding.mainBtnResult.isEnabled = true
+    }
+
     // данные готовы
     private fun openResult() {
-        // передача данных
-        sharedViewModel.results.value = ArrayList<ResItem>()
         // открытие фрагмента с результатом
         this.findNavController().navigate(R.id.action_mainFragment_to_resultFragment)
     }
