@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.movavi.android.geophysics.data.NetLoader
-import com.movavi.android.geophysics.data.config.ApiFactory
+import com.movavi.android.geophysics.data.ApiFactory
 import com.movavi.android.geophysics.data.config.Config
 import com.movavi.android.geophysics.data.config.Hole
 import retrofit2.Call

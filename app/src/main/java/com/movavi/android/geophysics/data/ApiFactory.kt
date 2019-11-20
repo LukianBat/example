@@ -1,6 +1,5 @@
-package com.movavi.android.geophysics.data.config
+package com.movavi.android.geophysics.data
 
-import com.movavi.android.geophysics.data.NetLoader
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
