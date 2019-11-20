@@ -64,7 +64,7 @@ class MainViewModel : ViewModel() {
         _isReady.value = true
     }
 
-    fun loadDataFromFile() {
+    private fun loadDataFromFile() {
         loader.getConfig().enqueue(object : Callback<Config> {
             override fun onFailure(call: Call<Config>, t: Throwable) {
                 Log.d("DEBUG", "error downloading")
