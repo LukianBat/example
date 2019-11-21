@@ -36,7 +36,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-
         <Button
             android:id="@+id/start_btn"
             android:layout_width="wrap_content"
@@ -50,4 +49,5 @@
             />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 </layout>
