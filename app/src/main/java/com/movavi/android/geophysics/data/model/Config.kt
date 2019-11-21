@@ -7,5 +7,5 @@ data class Hole(val params: ArrayList<Param>)
 data class Param(
     val name: String,
     val isWell: Boolean,
-    val variable: Float
+    val variable: Double
 )
