@@ -91,6 +91,15 @@ public class MyMath {
         return correlation;
     }
 
+    /**
+     * Метод, возвращающий квадратичный коэффициент корреляции
+     * @param @NonNull final List<Double> listX - коллекция, содержащая числовой ряд для Х, @NonNull final List<Double> listY - для Y соответственно .
+     * @return correlation  квадратичный коэффициент корреляции
+     */
+    public static Double getPowCorellation(@NonNull final List<Double> listX, @NonNull final List<Double> listY){
+        return Math.pow(getCorellation(listX, listY),2.0);
+    }
+
 
     /**
      * Метод, возвращающий значение при подсчете дельты
