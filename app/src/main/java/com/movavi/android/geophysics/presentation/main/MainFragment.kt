@@ -66,16 +66,16 @@ class MainFragment : Fragment() {
 
     // логика готовности оригинальных данных
     private fun downloadFinished() {
-        binding.mainLoadContainer.setCardBackgroundColor(Color.GRAY)
-        binding.mainLoadProgress.visibility = View.INVISIBLE
+        binding.mainLoadProgress.visibility = View.GONE
+        binding.mainLoadDoneImage.visibility = View.VISIBLE
         binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
         binding.mainCalcProgress.visibility = View.VISIBLE
     }
 
     // логика по готовности математики
     private fun calculatingReady() {
-        binding.mainCalcProgress.visibility = View.INVISIBLE
-        binding.mainCalcContainer.setCardBackgroundColor(Color.GRAY)
+        binding.mainCalcProgress.visibility = View.GONE
+        binding.mainCalcDoneImage.visibility = View.VISIBLE
         binding.mainBtnResult.isEnabled = true
     }
 
