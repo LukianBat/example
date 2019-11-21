@@ -25,7 +25,7 @@ class GetResUseCase {
                     resList.add(
                         ResItem(
                             "${config.holes[0].params[i].name} ${config.holes[0].params[j].name}",
-                            MyMath.getCorellation(listX, listY),
+                            MyMath.getPowCorellation(listX, listY),
                             MyMath.getRegression(listX, listY)
                         )
                     )
