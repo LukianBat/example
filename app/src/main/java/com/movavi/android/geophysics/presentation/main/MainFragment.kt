@@ -12,6 +12,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.movavi.android.geophysics.R
+import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.core.SharedViewModel
 import com.movavi.android.geophysics.databinding.FragmentMainBinding
 
@@ -52,8 +53,15 @@ class MainFragment : Fragment() {
 
         // заливка данных в общую viewmodel
         viewModel.listResult.observe(this, Observer {
-            ViewModelProviders.of(this).get(SharedViewModel::class.java)
-                .results.value = it
+            // временная переменная цикл
+            val tempList = ArrayList<ResItem>()
+            tempList.add(ResItem("First - Sec", 0.15f, "112xx+s1212"))
+            tempList.add(ResItem("Sec - Sec", 0.15f, "112xx+s1212"))
+            tempList.add(ResItem("First - Four", 0.15f, "1xx+s1212"))
+            tempList.add(ResItem("Five - Three", 0.15f, "113xx+s1212"))
+            //
+
+            sharedViewModel.results.value = tempList
         })
 
         // переход к результатам
