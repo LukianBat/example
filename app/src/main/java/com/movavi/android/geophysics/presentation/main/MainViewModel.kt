@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.movavi.android.geophysics.core.GetResUseCase
 import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.data.ApiFactory
 import com.movavi.android.geophysics.data.NetLoader
@@ -29,7 +30,6 @@ class MainViewModel : ViewModel() {
         get() = _listResult
 
     private val loader: NetLoader
-    lateinit var timer: CountDownTimer
 
     init {
         _isCalculating.value = false
@@ -39,24 +39,9 @@ class MainViewModel : ViewModel() {
     }
 
     fun loadingFinished(holes: ArrayList<Hole>) {
-        for (hole in holes) {
-            Log.d("DEBUG", "${hole.params}")
-        }
-
         _isCalculating.value = true
+        calculatingFinished(GetResUseCase.getResList(Config(holes)))
 
-        // TODO убрать таймер
-        timer = object : CountDownTimer(2000, 1000) {
-
-            override fun onFinish() {
-                // завершение подсчета
-                calculatingFinished(ArrayList<ResItem>())
-            }
-
-            override fun onTick(millisUntilFinished: Long) {
-                // do nothing
-            }
-        }.start()
     }
 
     fun calculatingFinished(resList: List<ResItem>) {
@@ -76,10 +61,5 @@ class MainViewModel : ViewModel() {
                 }
             }
         })
-    }
-
-    override fun onCleared() {
-        super.onCleared()
-        timer.cancel()
     }
 }
