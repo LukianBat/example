@@ -3,10 +3,14 @@ package com.movavi.android.geophysics.core;
 
 import androidx.annotation.NonNull;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 /** Класс для работы с математическими данными - подсчет корреляции и т.п. */
 public class MyMath {
+
+    // округлятель
+    private static DecimalFormat df =new DecimalFormat("#.###");
 
     /*
      * Метод, возвращающий сумму коллекции *
@@ -97,7 +101,7 @@ public class MyMath {
      * @return correlation  квадратичный коэффициент корреляции
      */
     public static Double getPowCorellation(@NonNull final List<Double> listX, @NonNull final List<Double> listY){
-        return Math.pow(getCorellation(listX, listY),2.0);
+        return Double.parseDouble(df.format(Math.pow(getCorellation(listX, listY),2.0)));
     }
 
 
@@ -132,7 +136,7 @@ public class MyMath {
         Double delta2 = getDelta(x_2, x, xy, y);
         Double a = delta1 / delta;
         Double b = delta2 / delta;
-        return "y=" + a + "x+" + b;
+        return "y=" + df.format(a) + "x+" + df.format(b);
     }
 
 
