@@ -21,4 +21,15 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="TextParams">
+        <item name="android:paddingStart">@dimen/sm_margin</item>
+        <item name="android:paddingLeft">@dimen/sm_margin</item>
+        <item name="android:paddingEnd">@dimen/sm_margin</item>
+        <item name="android:paddingRight">@dimen/sm_margin</item>
+    </style>
+
+    <style name="TextParams.Value">
+        <item name="android:textStyle">bold</item>
+    </style>
+
 </resources>
