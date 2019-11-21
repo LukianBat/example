@@ -12,7 +12,7 @@
 
     <!--item-->
     <string name="result_item_name_string" translatable="false">Value Name</string>
-    <string name="result_item_corel_string">Corelation</string>
+    <string name="result_item_corel_string">Corelation^2</string>
     <string name="result_item_corel_value" translatable="false">0.11</string>
     <string name="result_item_regress_string">Regression</string>
     <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
