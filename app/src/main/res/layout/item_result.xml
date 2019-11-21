@@ -11,21 +11,9 @@
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
+            android:padding="@dimen/sm_margin"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
-            <FrameLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:padding="@dimen/sm_margin"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
 
                     <TextView
                         android:id="@+id/item_name"
@@ -46,39 +34,35 @@
                         app:layout_constraintTop_toBottomOf="@+id/item_name"
                         android:text="@string/result_item_corel_string" />
 
-                    <TextView
-                        android:id="@+id/item_corel_name_value"
-                        style="@style/TextParams.Value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintStart_toEndOf="@+id/item_corel_name"
-                        app:layout_constraintTop_toTopOf="@+id/item_corel_name"
-                        tools:text="@string/result_item_corel_value" />
+            <TextView
+                android:id="@+id/item_corel_name_value"
+                style="@style/TextParams.Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/item_corel_name"
+                app:layout_constraintTop_toTopOf="@+id/item_corel_name"
+                tools:text="@string/result_item_corel_value" />
 
                     <TextView
                         android:id="@+id/item_regress_name"
                         style="@style/TextParams"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        app:layout_constraintStart_toEndOf="@+id/item_corel_name_value"
-                        app:layout_constraintTop_toTopOf="@+id/item_corel_name"
-                        android:text="@string/result_item_regress_string" />
+                        android:text="@string/result_item_regress_string"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/item_corel_name" />
 
-                    <TextView
-                        android:id="@+id/item_regress_name_value"
-                        style="@style/TextParams.Value"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintStart_toEndOf="@+id/item_regress_name"
-                        app:layout_constraintTop_toTopOf="@+id/item_regress_name"
-                        tools:text="@string/result_item_regress_value" />
+            <TextView
+                android:id="@+id/item_regress_name_value"
+                style="@style/TextParams.Value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_regress_name"
+                tools:text="@string/result_item_regress_value" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
-            </FrameLayout>
-
-
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 </layout>
