@@ -1,4 +1,4 @@
-package com.movavi.android.geophysics.result
+package com.movavi.android.geophysics.presentation.start
 
 
 import android.os.Bundle
@@ -7,35 +7,29 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.Observer
-import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 
 import com.movavi.android.geophysics.R
-import com.movavi.android.geophysics.databinding.FragmentResultBinding
+import com.movavi.android.geophysics.databinding.FragmentStartBinding
 
 /**
  * Fragment for result.
  */
-class ResultFragment : Fragment() {
+class StartFragment : Fragment() {
 
-    private lateinit var binding: FragmentResultBinding
-
-    private lateinit var viewModel: ResultViewModel
+    private lateinit var binding: FragmentStartBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
             inflater,
-            R.layout.fragment_result,
+            R.layout.fragment_start,
             container,false)
 
-        viewModel = ViewModelProviders.of(this).get(ResultViewModel::class.java)
-
-        // get model for
-        viewModel.result.observe(this, Observer {
-            binding.resultTxt.text = it.toString()
-        })
+        binding.startBtn.setOnClickListener {
+            this.findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+        }
 
         return binding.root
     }

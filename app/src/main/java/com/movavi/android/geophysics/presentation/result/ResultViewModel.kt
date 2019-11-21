@@ -1,4 +1,4 @@
-package com.movavi.android.geophysics.result
+package com.movavi.android.geophysics.presentation.result
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
