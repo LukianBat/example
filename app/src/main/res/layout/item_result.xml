@@ -44,7 +44,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/item_name"
-                        tools:text="@string/result_item_corel_string" />
+                        android:text="@string/result_item_corel_string" />
 
                     <TextView
                         android:id="@+id/item_corel_name_value"
@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         app:layout_constraintStart_toEndOf="@+id/item_corel_name_value"
                         app:layout_constraintTop_toTopOf="@+id/item_corel_name"
-                        tools:text="@string/result_item_regress_string" />
+                        android:text="@string/result_item_regress_string" />
 
                     <TextView
                         android:id="@+id/item_regress_name_value"
