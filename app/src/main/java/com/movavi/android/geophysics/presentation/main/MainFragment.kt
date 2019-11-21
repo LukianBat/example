@@ -1,4 +1,4 @@
-package com.movavi.android.geophysics.main
+package com.movavi.android.geophysics.presentation.main
 
 
 import android.graphics.Color
@@ -38,7 +38,7 @@ class MainFragment : Fragment() {
         )
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
+        sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
         // Загрузка завершена
         viewModel.isDownloadFinished.observe(this, Observer {
@@ -53,8 +53,15 @@ class MainFragment : Fragment() {
 
         // заливка данных в общую viewmodel
         viewModel.listResult.observe(this, Observer {
-            ViewModelProviders.of(this).get(SharedViewModel::class.java)
-                .results.value = it
+            // временная переменная цикл
+            val tempList = ArrayList<ResItem>()
+            tempList.add(ResItem("First - Sec", 0.15f, "112xx+s1212"))
+            tempList.add(ResItem("Sec - Sec", 0.15f, "112xx+s1212"))
+            tempList.add(ResItem("First - Four", 0.15f, "1xx+s1212"))
+            tempList.add(ResItem("Five - Three", 0.15f, "113xx+s1212"))
+            //
+
+            sharedViewModel.results.value = tempList
         })
 
         // переход к результатам

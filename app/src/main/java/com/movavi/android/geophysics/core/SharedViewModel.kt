@@ -4,5 +4,5 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
 class SharedViewModel : ViewModel() {
-    val results = MutableLiveData<List<ResItem>>()
+    val results = MutableLiveData<ArrayList<ResItem>>()
 }

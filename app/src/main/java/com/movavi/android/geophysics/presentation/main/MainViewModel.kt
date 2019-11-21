@@ -1,4 +1,4 @@
-package com.movavi.android.geophysics.main
+package com.movavi.android.geophysics.presentation.main
 
 import android.os.CountDownTimer
 import android.util.Log
@@ -46,7 +46,7 @@ class MainViewModel : ViewModel() {
         _isCalculating.value = true
 
         // TODO убрать таймер
-        timer = object : CountDownTimer(4000, 1000) {
+        timer = object : CountDownTimer(2000, 1000) {
 
             override fun onFinish() {
                 // завершение подсчета
