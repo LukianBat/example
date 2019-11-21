@@ -9,7 +9,7 @@ class GetResUseCase {
             val resList = arrayListOf<ResItem>()
             for (i in 0 until config.holes[0].params.size) {
                 if (!config.holes[0].params[i].isWell) continue
-                for (j in 1 until config.holes[0].params.size) {
+                for (j in 0 until config.holes[0].params.size) {
                     if (config.holes[0].params[j].isWell) continue
                     val listX = ArrayList<Double>()
                     val listY = ArrayList<Double>()
