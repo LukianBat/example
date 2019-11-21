@@ -1,38 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    >
 
     <com.google.android.material.card.MaterialCardView
+        style="@style/CardViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        style="@style/CardViewStyle"
         android:layout_margin="@dimen/sm_margin"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:padding="@dimen/sm_margin"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:padding="@dimen/sm_margin"
+            >
 
-                    <TextView
-                        android:id="@+id/item_name"
-                        style="@style/TextParams"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:text="@string/result_item_name_string" />
+            <TextView
+                android:id="@+id/item_name"
+                style="@style/TextParams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/result_item_name_string"
+                />
 
-                    <TextView
-                        android:id="@+id/item_corel_name"
-                        style="@style/TextParams"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/item_name"
-                        android:text="@string/result_item_corel_string" />
+            <TextView
+                android:id="@+id/item_corel_name"
+                style="@style/TextParams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/result_item_corel_string"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_name"
+                />
 
             <TextView
                 android:id="@+id/item_corel_name_value"
@@ -42,16 +47,18 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/item_corel_name"
                 app:layout_constraintTop_toTopOf="@+id/item_corel_name"
-                tools:text="@string/result_item_corel_value" />
+                tools:text="@string/result_item_corel_value"
+                />
 
-                    <TextView
-                        android:id="@+id/item_regress_name"
-                        style="@style/TextParams"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/result_item_regress_string"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/item_corel_name" />
+            <TextView
+                android:id="@+id/item_regress_name"
+                style="@style/TextParams"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/result_item_regress_string"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/item_corel_name"
+                />
 
             <TextView
                 android:id="@+id/item_regress_name_value"
@@ -61,8 +68,9 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_regress_name"
-                tools:text="@string/result_item_regress_value" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                tools:text="@string/result_item_regress_value"
+                />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>
 </layout>

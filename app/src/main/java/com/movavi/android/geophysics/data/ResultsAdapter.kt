@@ -9,6 +9,7 @@ import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.core.ResItem
 
 class ResultsAdapter : RecyclerView.Adapter<ResultsAdapter.ViewHolder>() {
+
     var listResults = ArrayList<ResItem>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -26,9 +27,14 @@ class ResultsAdapter : RecyclerView.Adapter<ResultsAdapter.ViewHolder>() {
         holder.regress.text = listResults[position].regres
     }
 
+    /**
+     * Принимает на вход список [ResItem], приравнивая [listResults] полученный список
+     * [ResItem] - объект содержащий в себе набор имён зависимых параметров, значение корреляции и уравнение регрессии.
+     */
     fun setList(newList: ArrayList<ResItem>) {
         listResults = newList
     }
+
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var name: TextView = itemView.findViewById(R.id.item_name)

@@ -5,6 +5,10 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface NetLoader {
-    @GET("android/geo.json")
+    @GET(SUB_URL)
     fun getConfig(): Call<Config>
+
+    companion object {
+        private const val SUB_URL = "android/geo.json"
+    }
 }
