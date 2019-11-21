@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 
 import com.movavi.android.geophysics.R
+import com.movavi.android.geophysics.core.SharedViewModel
 import com.movavi.android.geophysics.databinding.FragmentResultBinding
 
 /**
@@ -20,7 +21,7 @@ class ResultFragment : Fragment() {
 
     private lateinit var binding: FragmentResultBinding
 
-    private lateinit var viewModel: ResultViewModel
+    private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -30,10 +31,10 @@ class ResultFragment : Fragment() {
             R.layout.fragment_result,
             container,false)
 
-        viewModel = ViewModelProviders.of(this).get(ResultViewModel::class.java)
+        sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
         // get model for
-        viewModel.result.observe(this, Observer {
+        sharedViewModel.results.observe(this, Observer {
             binding.resultTxt.text = it.toString()
         })
 

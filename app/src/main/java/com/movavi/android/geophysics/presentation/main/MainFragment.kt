@@ -1,4 +1,4 @@
-package com.movavi.android.geophysics.main
+package com.movavi.android.geophysics.presentation.main
 
 
 import android.graphics.Color
@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import com.movavi.android.geophysics.R
-import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.core.SharedViewModel
 import com.movavi.android.geophysics.databinding.FragmentMainBinding
 
@@ -38,7 +37,7 @@ class MainFragment : Fragment() {
         )
 
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
+        sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
         // Загрузка завершена
         viewModel.isDownloadFinished.observe(this, Observer {

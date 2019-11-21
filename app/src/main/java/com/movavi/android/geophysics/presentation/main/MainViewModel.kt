@@ -1,4 +1,4 @@
-package com.movavi.android.geophysics.main
+package com.movavi.android.geophysics.presentation.main
 
 import android.os.CountDownTimer
 import android.util.Log
