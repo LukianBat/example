@@ -5,6 +5,11 @@ import com.movavi.android.geophysics.data.model.Config
 class GetResUseCase {
 
     companion object {
+        /**
+         * Получить список расчётов корреляции и уравнений регрессии
+         * [config] - объект принимаемый из сети, содержит в себе информацию о скважинах и её параметрах.
+         * [ResItem] - объект содержащий в себе набор имён зависимых параметров, значение корреляции и уравнение регрессии
+         */
         fun getResList(config: Config): ArrayList<ResItem> {
             val resList = arrayListOf<ResItem>()
             for (i in 0 until config.holes[0].params.size) {
