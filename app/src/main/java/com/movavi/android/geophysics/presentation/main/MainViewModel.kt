@@ -8,8 +8,8 @@ import androidx.lifecycle.ViewModel
 import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.data.ApiFactory
 import com.movavi.android.geophysics.data.NetLoader
-import com.movavi.android.geophysics.data.config.Config
-import com.movavi.android.geophysics.data.config.Hole
+import com.movavi.android.geophysics.data.model.Config
+import com.movavi.android.geophysics.data.model.Hole
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
