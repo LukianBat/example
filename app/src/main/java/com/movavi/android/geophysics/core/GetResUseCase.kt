@@ -1,6 +1,8 @@
 package com.movavi.android.geophysics.core
 
 import com.movavi.android.geophysics.data.model.Config
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class GetResUseCase {
 
@@ -11,6 +13,9 @@ class GetResUseCase {
          * [ResItem] - объект содержащий в себе набор имён зависимых параметров, значение корреляции и уравнение регрессии
          */
         fun getResList(config: Config): ArrayList<ResItem> {
+            val df = DecimalFormat("#.###")
+            df.roundingMode = RoundingMode.CEILING
+
             val resList = arrayListOf<ResItem>()
             for (i in 0 until config.holes[0].params.size) {
                 if (!config.holes[0].params[i].isWell) continue
