@@ -16,8 +16,5 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        val navigation = this.findNavController(R.id.myNavHostFragment)
-        val sharedViewModel = ViewModelProviders.of(this).get(SharedViewModel::class.java)
     }
-
 }

@@ -1,31 +1,46 @@
 package com.movavi.android.geophysics.core;
 
 
+import androidx.annotation.NonNull;
+
 import java.util.List;
 
-
+/** Класс для работы с математическими данными - подсчет корреляции и т.п. */
 public class MyMath {
 
-    /*сумма элементов в коллекции*/
-    private static Double getSum(List<Double> list) {
-        Double sum = 0.0;
+    /*
+     * Метод, возвращающий сумму коллекции *
+     * @param List<Double> list - коллекция.
+     * @return m_sum- сумма элементоа коллекции.
+     */
+    private static Double getSum(@NonNull final List<Double> list) {
+        Double m_sum = 0.0;
         for (Double f : list) {
-            sum += f;
+            m_sum += f;
         }
-        return sum;
+        return m_sum;
     }
 
+    /*
+     * Метод, возвращающий сумму элементов в коллекции, возведенных в квадрат  *
+     * @param List<Double> list - коллекция.
+     * @return m_sum - сумма элементоа коллекции.
+     */
     /*сумма элементов в коллекции, возведенных в квадрат */
-    private static Double getPowSum(List<Double> list) {
-        Double sum = 0.0;
+    private static Double getPowSum(@NonNull final List<Double> list) {
+        Double m_sum = 0.0;
         for (Double elem : list) {
-            sum += Math.pow(elem, 2.0);
+            m_sum += Math.pow(elem, 2.0);
         }
-        return sum;
+        return m_sum;
     }
 
-    /*сумма элементов двух коллекций, предворительно умноженных друг на друга */
-    private static Double getMultipleSum(List<Double> listX, List<Double> listY) {
+    /**
+     * Метод, возвращающий сумму элементов двух коллекций, предворительно умноженных друг на друга  *
+     * @param List<Double> list - коллекция.
+     * @return m_sum - сумма элементоа коллекции.
+     */
+    private static Double getMultipleSum(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
         Double sum = 0.0;
         int i = 0;
         for (Double elem : listX) {
@@ -35,24 +50,29 @@ public class MyMath {
         return sum;
     }
 
-
-    /* средне-арифметическое по столбцу=математическое ожидание */
-    public static Double getAvg(List<Double> list) {
+    /**
+     * Метод, возвращающий средне-арифметическое по столбцу=математическое ожидание *
+     * @param List<Double> list - коллекция.
+     * @return средне-аримитическое
+     */
+        private static Double getAvg(List<Double> list) {
         return getSum(list) / list.size();
     }
 
 
-    /**********************************************************
-     * Коэффициент корреляции
-     ***********************************************************/
-    public static Double getCorellation(List<Double> listX, List<Double> listY) {
+    /**
+     * Метод, возвращающий коэффициент корреляции
+     * @param @NonNull final List<Double> listX - коллекция, содержащая числовой ряд для Х, @NonNull final List<Double> listY - для Y соответственно .
+     * @return correlation  коэффициент корреляции
+     */
+    public static Double getCorellation(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
         /*вычисляем мат. ожидание для x и y*/
-        Double avgX = getAvg(listX);
-        Double avgY = getAvg(listY);
+        Double m_avgX = getAvg(listX);
+        Double m_avgY = getAvg(listY);
         /*коварация и сигмы*/
-        Double covariance = 0.0;
-        Double sigmaX = 0.0;
-        Double sigmaY = 0.0;
+        Double m_covariance = 0.0;
+        Double m_sigmaX = 0.0;
+        Double m_sigmaY = 0.0;
         /*кореляция*/
         Double correlation = 0.0;
 
@@ -60,33 +80,34 @@ public class MyMath {
 
         for (Double l : listX) {
             /*вычисляем коварацию для числового ряда*/
-            covariance += (listX.get(i) - avgX) * (listY.get(i) - avgY);
+            m_covariance += (listX.get(i) - m_avgX) * (listY.get(i) - m_avgY);
             /*вычисляем сигмы (x-мат.ожидание(x))^2*/
-            sigmaX += Math.pow(listX.get(i) - avgX, 2.0);
-            sigmaY += Math.pow(listY.get(i) - avgY, 2.0);
+            m_sigmaX += Math.pow(listX.get(i) - m_avgX, 2.0);
+            m_sigmaY += Math.pow(listY.get(i) - m_avgY, 2.0);
             i++;
         }
         /* кореляция = коварация/корень квадратный от произведения сигм*/
-        correlation = covariance / Math.sqrt(sigmaX * sigmaY);
+        correlation = m_covariance / Math.sqrt(m_sigmaX * m_sigmaY);
         return correlation;
     }
 
 
+    /**
+     * Метод, возвращающий значение при подсчете дельты
+     * @param Double x11, Double x12, Double y11, Double y12 - параметры матрицы для подсчета методом треугольника
+     * @return (x11 * y12) - (x12 * y11) дельта
+     */
     private static Double getDelta(Double x11, Double x12, Double y11, Double y12) {
         return (x11 * y12) - (x12 * y11);
     }
 
 
-    /**********************************************************
-     * Уравнение регрессии
-     * Для построение уравнения линейной регрессии вида  используем метод наименьших квадратов.
-     * 1. для каждого X и Y находим x^2,xy,y^2
-     * 2.составляем уравнение вида | xy=x^2*a+xb
-     *                             | y= xa +bn
-     * 3.решаем уравнение методом треугольника
-     ***********************************************************/
-
-    public static String getRegression(List<Double> listX, List<Double> listY) {
+    /**
+     * Метод, возвращающий  уравнение регрессии
+     * @param @NonNull final List<Double> listX, @NonNull final List<Double> listY - коллекции, содржащие числовой ряд
+     * @return уравнение
+     */
+     public static String getRegression(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
         Double x = getSum(listX);
         Double y = getSum(listY);
 
