@@ -101,7 +101,7 @@ public class MyMath {
      * @return correlation  квадратичный коэффициент корреляции
      */
     public static Double getPowCorellation(@NonNull final List<Double> listX, @NonNull final List<Double> listY){
-        return Double.parseDouble(df.format(Math.pow(getCorellation(listX, listY),2.0)));
+        return Double.parseDouble(df.format(Math.pow(getCorellation(listX, listY),2.0)).replace(',', '.'));
     }
 
 
@@ -136,7 +136,7 @@ public class MyMath {
         Double delta2 = getDelta(x_2, x, xy, y);
         Double a = delta1 / delta;
         Double b = delta2 / delta;
-        return "y=" + df.format(a) + "x+" + df.format(b);
+        return "y=" + df.format(a).replace(',', '.') + "x+" + df.format(b).replace(',', '.');
     }
 
 
