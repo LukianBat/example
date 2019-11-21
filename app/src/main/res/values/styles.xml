@@ -9,15 +9,25 @@
     </style>
 
     <style name="CardViewStyle">
-        <item name="strokeColor">@color/colorPrimary</item>
         <item name="strokeWidth">1dp</item>
-        <item name="cardCornerRadius">10dp</item>
+        <item name="cardCornerRadius">4dp</item>
         <item name="cardElevation">5dp</item>
-        <item name="android:layout_marginBottom">24dp</item>
+        <item name="android:layout_marginBottom">16dp</item>
     </style>
 
     <style name="MainText">
         <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="TextParams">
+        <item name="android:paddingStart">@dimen/sm_margin</item>
+        <item name="android:paddingLeft">@dimen/sm_margin</item>
+        <item name="android:paddingEnd">@dimen/sm_margin</item>
+        <item name="android:paddingRight">@dimen/sm_margin</item>
+    </style>
+
+    <style name="TextParams.Value">
         <item name="android:textStyle">bold</item>
     </style>
 
