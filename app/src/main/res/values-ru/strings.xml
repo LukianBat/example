@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Movavi Geophysics</string>
+    <string name="main_calc_string">Рассчет</string>
+    <string name="main_load_string">Загрузка</string>
+    <string name="main_result_btn_text">Результат</string>
+    <string name="result_fragment_title">Результат</string>
+    <string name="result_item_corel_string">Кореляция</string>
+    <string name="start_btn_string">Старт</string>
+    <string name="result_item_regress_string">Регрессия</string>
+    <string name="start_logo_desc">Стартовый логотип</string>
+</resources>

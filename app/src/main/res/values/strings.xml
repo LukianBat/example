@@ -2,16 +2,17 @@
     <string name="app_name">Movavi Geophysics</string>
     <string name="main_load_string">Loading</string>
     <string name="main_calc_string">Calculating</string>
+    <string name="main_result_btn_text">Result</string>
+    <string name="start_logo_desc">Start Logo</string>
+    <string name="start_btn_string">Start</string>
 
     <!--Result fragment-->
     <string name="result_fragment_title">Result</string>
-    <string name="main_result_btn_text">Результат</string>
-    <string name="start_btn_string">start</string>
 
     <!--item-->
-    <string name="result_item_name_string">Value Name</string>
+    <string name="result_item_name_string" translatable="false">Value Name</string>
     <string name="result_item_corel_string">Corelation</string>
-    <string name="result_item_corel_value">0.11</string>
+    <string name="result_item_corel_value" translatable="false">0.11</string>
     <string name="result_item_regress_string">Regression</string>
-    <string name="result_item_regress_value">0.11x + 155</string>
+    <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
 </resources>
