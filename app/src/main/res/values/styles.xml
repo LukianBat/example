@@ -25,6 +25,7 @@
         <item name="android:paddingLeft">@dimen/sm_margin</item>
         <item name="android:paddingEnd">@dimen/sm_margin</item>
         <item name="android:paddingRight">@dimen/sm_margin</item>
+        <item name="android:textSize">24sp</item>
     </style>
 
     <style name="TextParams.Value">
