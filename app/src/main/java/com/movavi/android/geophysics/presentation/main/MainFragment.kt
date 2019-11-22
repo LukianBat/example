@@ -42,10 +42,13 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
-        val mRecycler=binding.startDatRecycler
-        val mAdapter= DataAdapter()
-        mRecycler.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
-        mRecycler.adapter=mAdapter
+        //Передача списка url в [viewModel]
+        viewModel.urlList.value = sharedViewModel.urlList.value as ArrayList<String>
+
+        val mRecycler = binding.startDatRecycler
+        val mAdapter = DataAdapter()
+        mRecycler.layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+        mRecycler.adapter = mAdapter
 
         // Загрузка завершена
         viewModel.isDownloadFinished.observe(this, Observer {
@@ -79,7 +82,7 @@ class MainFragment : Fragment() {
     private fun downloadFinished() {
         binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
         binding.mainCalcProgress.visibility = View.VISIBLE
-        binding.mainLoadContainer.visibility=View.GONE
+        binding.mainLoadContainer.visibility = View.GONE
 //        binding.startDatRecycler.visibility=View.VISIBLE
     }
 
