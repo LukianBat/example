@@ -43,7 +43,7 @@ class GetResUseCase {
 
         private fun getPartialResList(holes: ArrayList<Hole>, list: ArrayList<ArrayList<ResItem>>): ArrayList<ArrayList<ResItem>> {
             for (i in 0 until holes.size){
-                val resList: List<ResItem> = getPartialResList(holes, i)
+                val resList: List<ResItem> = getPartialResListSkip(holes, i)
                 for(j in resList.indices){
                     list[j].add(resList[j])
                 }
@@ -57,7 +57,7 @@ class GetResUseCase {
          * [holes] - данные по скважинам
          * [skip] - какую строку пропускать
          */
-        private fun getPartialResList(holes: ArrayList<Hole>, skip: Int): List<ResItem> {
+        private fun getPartialResListSkip(holes: ArrayList<Hole>, skip: Int): List<ResItem> {
             val df = DecimalFormat("#.###")
             df.roundingMode = RoundingMode.CEILING
 
