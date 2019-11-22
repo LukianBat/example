@@ -69,6 +69,16 @@
                 tools:text="@string/result_item_regress_value"
                 style="@style/TextParams.Value"
                 />
+
+            <TextView
+                android:id="@+id/item_data_partial"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/item_regress_name_value"
+                tools:text="@string/result_item_regress_value"
+                style="@style/TextParamsSmal"
+                />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </com.google.android.material.card.MaterialCardView>

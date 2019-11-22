@@ -64,7 +64,7 @@ class MainFragment : Fragment() {
 
         // заливка данных в общую viewmodel
         viewModel.listResult.observe(this, Observer {
-            sharedViewModel.results.value = it as ArrayList<ResItem>
+            sharedViewModel.results.value = it
         })
 
         // переход к результатам
