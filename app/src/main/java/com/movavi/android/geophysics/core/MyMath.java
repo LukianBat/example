@@ -32,7 +32,7 @@ public class MyMath {
      */
     /*сумма элементов в коллекции, возведенных в квадрат */
     private static Double getPowSum(@NonNull final List<Double> list) {
-        Double m_sum = 0.0;
+        double m_sum = 0.0;
         for (Double elem : list) {
             m_sum += Math.pow(elem, 2.0);
         }
@@ -41,11 +41,11 @@ public class MyMath {
 
     /**
      * Метод, возвращающий сумму элементов двух коллекций, предворительно умноженных друг на друга  *
-     * @param List<Double> list - коллекция.
+     * @param listY<Double> list - коллекция.
      * @return m_sum - сумма элементоа коллекции.
      */
     private static Double getMultipleSum(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
-        Double sum = 0.0;
+        double sum = 0.0;
         int i = 0;
         for (Double elem : listX) {
             sum += listX.get(i) * listY.get(i);
@@ -56,7 +56,7 @@ public class MyMath {
 
     /**
      * Метод, возвращающий средне-арифметическое по столбцу=математическое ожидание *
-     * @param List<Double> list - коллекция.
+     * @param list<Double> list - коллекция.
      * @return средне-аримитическое
      */
         private static Double getAvg(List<Double> list) {
@@ -66,19 +66,19 @@ public class MyMath {
 
     /**
      * Метод, возвращающий коэффициент корреляции
-     * @param @NonNull final List<Double> listX - коллекция, содержащая числовой ряд для Х, @NonNull final List<Double> listY - для Y соответственно .
+     * @param listX - коллекция, содержащая числовой ряд для Х, @NonNull final List<Double> listY - для Y соответственно .
      * @return correlation  коэффициент корреляции
      */
     public static Double getCorellation(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
         /*вычисляем мат. ожидание для x и y*/
-        Double m_avgX = getAvg(listX);
-        Double m_avgY = getAvg(listY);
+        double m_avgX = getAvg(listX);
+        double m_avgY = getAvg(listY);
         /*коварация и сигмы*/
-        Double m_covariance = 0.0;
-        Double m_sigmaX = 0.0;
-        Double m_sigmaY = 0.0;
+        double m_covariance = 0.0;
+        double m_sigmaX = 0.0;
+        double m_sigmaY = 0.0;
         /*кореляция*/
-        Double correlation = 0.0;
+        double correlation;
 
         int i = 0;
 
@@ -97,7 +97,7 @@ public class MyMath {
 
     /**
      * Метод, возвращающий квадратичный коэффициент корреляции
-     * @param @NonNull final List<Double> listX - коллекция, содержащая числовой ряд для Х, @NonNull final List<Double> listY - для Y соответственно .
+     * @param listX - коллекция, содержащая числовой ряд для Х, @NonNull final List<Double> listY - для Y соответственно .
      * @return correlation  квадратичный коэффициент корреляции
      */
     public static Double getPowCorellation(@NonNull final List<Double> listX, @NonNull final List<Double> listY){
@@ -107,37 +107,61 @@ public class MyMath {
 
     /**
      * Метод, возвращающий значение при подсчете дельты
-     * @param Double x11, Double x12, Double y11, Double y12 - параметры матрицы для подсчета методом треугольника
+     * @param x11, x12, y11, y12 - параметры матрицы для подсчета методом треугольника
      * @return (x11 * y12) - (x12 * y11) дельта
      */
     private static Double getDelta(Double x11, Double x12, Double y11, Double y12) {
         return (x11 * y12) - (x12 * y11);
     }
 
-
     /**
-     * Метод, возвращающий  уравнение регрессии
-     * @param @NonNull final List<Double> listX, @NonNull final List<Double> listY - коллекции, содржащие числовой ряд
-     * @return уравнение
+     * Метод, возвращающий  a уравнения регрессии
+     * @param listX, listY - коллекции, содржащие числовой ряд
+     * @return a
      */
-     public static String getRegression(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
+    public static Double getRegressionA(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
         Double x = getSum(listX);
         Double y = getSum(listY);
 
         Double x_2 = getPowSum(listX);
-        Double y_2 = getPowSum(listY);
 
         Double xy = getMultipleSum(listX, listY);
 
-        Double size = Double.valueOf(listX.size());
+        Double size = (double) listX.size();
 
         Double delta = getDelta(x_2, x, x, size);
         Double delta1 = getDelta(xy, y, x, size);
-        Double delta2 = getDelta(x_2, x, xy, y);
-        Double a = delta1 / delta;
-        Double b = delta2 / delta;
-        return "y=" + df.format(a).replace(',', '.') + "x+" + df.format(b).replace(',', '.');
+        return delta1 / delta;
     }
 
+    /**
+     * Метод, возвращающий  b уравнения регрессии
+     * @param listX, listY - коллекции, содржащие числовой ряд
+     * @return b
+     */
+    public static Double getRegressionB(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
+        Double x = getSum(listX);
+        Double y = getSum(listY);
 
+        Double x_2 = getPowSum(listX);
+
+        Double xy = getMultipleSum(listX, listY);
+
+        Double size = (double) listX.size();
+
+        Double delta = getDelta(x_2, x, x, size);
+        Double delta2 = getDelta(x_2, x, xy, y);
+        return delta2 / delta;
+    }
+
+    /**
+     * Метод, возвращающий  уравнение регрессии
+     * @param listX, listY - коллекции, содржащие числовой ряд
+     * @return уравнение
+     */
+    public static String getRegression(@NonNull final List<Double> listX, @NonNull final List<Double> listY) {
+        Double a = getRegressionA(listX, listY);
+        Double b = getRegressionB(listX, listY);
+        return "y=" + df.format(a).replace(',', '.') + "x+" + df.format(b).replace(',', '.');
+    }
 }
