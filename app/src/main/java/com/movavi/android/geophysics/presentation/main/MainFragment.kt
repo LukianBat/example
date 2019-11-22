@@ -2,6 +2,7 @@ package com.movavi.android.geophysics.presentation.main
 
 
 import android.graphics.Color
+import android.opengl.Visibility
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,9 +12,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.core.SharedViewModel
+import com.movavi.android.geophysics.data.DataAdapter
 import com.movavi.android.geophysics.databinding.FragmentMainBinding
 
 /**
@@ -40,9 +44,22 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
+            // TODO объявить recycleview, layoutmanager, adapter
+
+        val m_recycler=binding.startDatRecycler
+
+
+        val mAdapter= DataAdapter()
+        m_recycler.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
+        m_recycler.adapter=mAdapter
+
         // Загрузка завершена
         viewModel.isDownloadFinished.observe(this, Observer {
             if (it) downloadFinished()
+             binding.mainLoadContainer.visibility=View.GONE
+            binding.startDatRecycler.visibility=View.VISIBLE;
+
+            mAdapter.setList(it)
         })
 
         viewModel.listData.observe(this, Observer {

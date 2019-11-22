@@ -148,6 +148,16 @@
             android:text="@string/main_result_btn_text"
             />
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/start_dat_recycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/main_load_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </layout>
