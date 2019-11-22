@@ -1,6 +1,5 @@
 package com.movavi.android.geophysics.data
 
-import android.icu.text.Transliterator
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,19 +7,15 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.data.model.Hole
-import com.movavi.android.geophysics.data.model.Param
 
 class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
-
     var listHoles = ArrayList<Hole>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var text: TextView = itemView.findViewById(R.id.paramTextView)
-
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-
         //получаем все параметры для данной скважины
         var string = ""
 
@@ -29,14 +24,14 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
             val variable = it.variable
             val type = it.isWell
 
-            string += "$name ${if (type) "сквж" else "сейсм"} $variable "
+            string += "$name ${if (type) "сквж" else "сейсм"} $variable \n"
         }
 
         holder.text.text = string
     }
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): DataAdapter.ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView =
             LayoutInflater.from(parent.context).inflate(R.layout.item_data, parent, false)
         return ViewHolder(itemView)
@@ -46,6 +41,7 @@ class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
 
     fun setList(newList: ArrayList<Hole>) {
         listHoles = newList
+        notifyDataSetChanged()
     }
 }
 

@@ -28,8 +28,8 @@ class MainViewModel : ViewModel() {
     val listResult: LiveData<List<ResItem>>
         get() = _listResult
 
-    private var _listData = MutableLiveData<List<Hole>>()
-    val listData: LiveData<List<Hole>>
+    private var _listData = MutableLiveData<ArrayList<Hole>>()
+    val listData: LiveData<ArrayList<Hole>>
         get() = _listData
 
     private val loader: NetLoader
