@@ -11,9 +11,11 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.core.SharedViewModel
+import com.movavi.android.geophysics.data.DataAdapter
 import com.movavi.android.geophysics.databinding.FragmentMainBinding
 
 /**
@@ -40,9 +42,18 @@ class MainFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
+        val mRecycler=binding.startDatRecycler
+        val mAdapter= DataAdapter()
+        mRecycler.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
+        mRecycler.adapter=mAdapter
+
         // Загрузка завершена
         viewModel.isDownloadFinished.observe(this, Observer {
             if (it) downloadFinished()
+        })
+
+        viewModel.listData.observe(this, Observer {
+            mAdapter.setList(it)
         })
 
         // подсчет окончен
@@ -66,10 +77,10 @@ class MainFragment : Fragment() {
 
     // логика готовности оригинальных данных
     private fun downloadFinished() {
-        binding.mainLoadProgress.visibility = View.GONE
-        binding.mainLoadDoneImage.visibility = View.VISIBLE
         binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
         binding.mainCalcProgress.visibility = View.VISIBLE
+        binding.mainLoadContainer.visibility=View.GONE
+//        binding.startDatRecycler.visibility=View.VISIBLE
     }
 
     // логика по готовности математики
