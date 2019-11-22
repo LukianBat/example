@@ -6,10 +6,9 @@
     >
 
     <com.google.android.material.card.MaterialCardView
-        style="@style/CardViewStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/sm_margin"
+        style="@style/CardViewStyle"
         >
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -20,23 +19,23 @@
 
             <TextView
                 android:id="@+id/item_name"
-                style="@style/TextParams"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:text="@string/result_item_name_string"
+                style="@style/TextParams"
                 />
 
             <TextView
                 android:id="@+id/item_corel_name"
-                style="@style/TextParams"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_name"
                 android:text="@string/result_item_corel_string"
+                style="@style/TextParams"
                 />
 
             <TextView
@@ -46,8 +45,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toEndOf="@+id/item_corel_name"
                 app:layout_constraintTop_toTopOf="@+id/item_corel_name"
-                style="@style/TextParams.Value"
                 tools:text="@string/result_item_corel_value"
+                style="@style/TextParams.Value"
                 />
 
             <TextView
@@ -67,8 +66,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/item_regress_name"
-                style="@style/TextParams.Value"
                 tools:text="@string/result_item_regress_value"
+                style="@style/TextParams.Value"
                 />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
