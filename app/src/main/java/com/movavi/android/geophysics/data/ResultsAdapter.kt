@@ -10,7 +10,7 @@ import com.movavi.android.geophysics.core.ResItem
 
 class ResultsAdapter : RecyclerView.Adapter<ResultsAdapter.ViewHolder>() {
 
-    var listResults = ArrayList<ArrayList<ResItem>>()
+    private var listResults = ArrayList<ArrayList<ResItem>>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView =

@@ -48,7 +48,7 @@ class MainViewModel : ViewModel() {
 
     }
 
-    fun calculatingFinished(resList: ArrayList<ArrayList<ResItem>>) {
+    private fun calculatingFinished(resList: ArrayList<ArrayList<ResItem>>) {
         _listResult.value = resList
         _isReady.value = true
     }

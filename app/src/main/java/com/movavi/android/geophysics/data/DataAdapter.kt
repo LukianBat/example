@@ -9,7 +9,7 @@ import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.data.model.Hole
 
 class DataAdapter : RecyclerView.Adapter<DataAdapter.ViewHolder>() {
-    var listHoles = ArrayList<Hole>()
+    private var listHoles = ArrayList<Hole>()
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var text: TextView = itemView.findViewById(R.id.paramTextView)
