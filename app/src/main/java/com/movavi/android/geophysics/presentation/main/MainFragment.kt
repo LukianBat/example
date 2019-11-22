@@ -52,6 +52,7 @@ class MainFragment : Fragment() {
             if (it) downloadFinished()
         })
 
+        // Загрузка завершена - данные выводим
         viewModel.listData.observe(this, Observer {
             mAdapter.setList(it)
         })
@@ -60,7 +61,6 @@ class MainFragment : Fragment() {
         viewModel.isReady.observe(this, Observer {
             if (it) calculatingReady()
         })
-
 
         // заливка данных в общую viewmodel
         viewModel.listResult.observe(this, Observer {
@@ -80,7 +80,6 @@ class MainFragment : Fragment() {
         binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
         binding.mainCalcProgress.visibility = View.VISIBLE
         binding.mainLoadContainer.visibility=View.GONE
-//        binding.startDatRecycler.visibility=View.VISIBLE
     }
 
     // логика по готовности математики
