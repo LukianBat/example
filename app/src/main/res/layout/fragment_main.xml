@@ -146,9 +146,10 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/start_dat_recycler"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/main_btn_result"
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_behavior="@string/appbar_scrolling_view_behavior"
                 android:layout_marginTop="@dimen/st_margin"
                 />
