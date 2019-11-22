@@ -1,6 +1,5 @@
 package com.movavi.android.geophysics.presentation.main
 
-import android.os.CountDownTimer
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -29,6 +28,10 @@ class MainViewModel : ViewModel() {
     val listResult: LiveData<List<ResItem>>
         get() = _listResult
 
+    private var _listData = MutableLiveData<List<Hole>>()
+    val listData: LiveData<List<Hole>>
+        get() = _listData
+
     private val loader: NetLoader
 
     init {
@@ -40,6 +43,7 @@ class MainViewModel : ViewModel() {
 
     fun loadingFinished(holes: ArrayList<Hole>) {
         _isCalculating.value = true
+        _listData.value = holes
         calculatingFinished(GetResUseCase.getResList(Config(holes)))
 
     }

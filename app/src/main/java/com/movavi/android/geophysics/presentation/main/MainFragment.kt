@@ -45,6 +45,11 @@ class MainFragment : Fragment() {
             if (it) downloadFinished()
         })
 
+        viewModel.listData.observe(this, Observer {
+            // already get Data
+            // TODO setList in adapter
+        })
+
         // подсчет окончен
         viewModel.isReady.observe(this, Observer {
             if (it) calculatingReady()
