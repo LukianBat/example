@@ -13,36 +13,15 @@ class GetResUseCase {
          * [ResItem] - объект содержащий в себе набор имён зависимых параметров, значение корреляции и уравнение регрессии
          */
         fun getFullResList(holes: ArrayList<Hole>): ArrayList<ArrayList<ResItem>> {
-            val df = DecimalFormat("#.###")
-            df.roundingMode = RoundingMode.CEILING
-
             val resList = ArrayList<ArrayList<ResItem>>()
-            for (i in 0 until holes[0].params.size) {
-                if (!holes[0].params[i].isWell) continue
-                for (j in 0 until holes[0].params.size) {
-                    if (holes[0].params[j].isWell) continue
-                    val listX = ArrayList<Double>()
-                    val listY = ArrayList<Double>()
-                    for (k in 0 until holes.size) {
-                        listX.add(holes[k].params[i].variable)
-                        listY.add(holes[k].params[j].variable)
-                    }
-
-                    val tmpList = ArrayList<ResItem>()
-                    tmpList.add(
-                            ResItem("${holes[0].params[i].name} ${holes[0].params[j].name}",
-                            MyMath.getPowCorellation(listX, listY),
-                            MyMath.getRegression(listX, listY))
-                        )
-                    resList.add(tmpList)
-
-                }
+            for(j in holes.indices){
+                resList.add(ArrayList())
             }
             return getPartialResList(holes, resList)
         }
 
         private fun getPartialResList(holes: ArrayList<Hole>, list: ArrayList<ArrayList<ResItem>>): ArrayList<ArrayList<ResItem>> {
-            for (i in 0 until holes.size){
+            for (i in -1 until holes.size){
                 val resList: List<ResItem> = getPartialResListSkip(holes, i)
                 for(j in resList.indices){
                     list[j].add(resList[j])
