@@ -63,6 +63,6 @@ class MainFragment : Fragment() {
     // данные готовы
     private fun openResult() {
         // открытие фрагмента с результатом
-        this.findNavController().navigate(R.id.action_mainFragment_to_resultFragment)
+        this.findNavController().navigate(R.id.action_mainFragment_to_calculatingFragment)
     }
 }

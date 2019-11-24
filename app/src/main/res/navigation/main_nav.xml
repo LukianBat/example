@@ -8,10 +8,6 @@
         android:name="com.movavi.android.geophysics.presentation.main.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_resultFragment"
-            app:destination="@id/resultFragment"
-            app:popUpTo="@+id/startFragment" />
-        <action
             android:id="@+id/action_mainFragment_to_calculatingFragment"
             app:destination="@id/calculatingFragment" />
     </fragment>
