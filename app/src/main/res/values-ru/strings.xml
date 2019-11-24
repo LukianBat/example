@@ -12,4 +12,5 @@
     <string name="main_result_done_desc">Задание завершено</string>
     <string name="fragment_calculating_string">Считаем…</string>
     <string name="fragment_downloading_string">Загружаем…</string>
+    <string name="fragment_downloading_error_string">Ошибка загрузки</string>
 </resources>

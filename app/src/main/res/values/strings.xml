@@ -18,4 +18,5 @@
     <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
     <string name="fragment_calculating_string">Calculating…</string>
     <string name="fragment_downloading_string">Downloading…</string>
+    <string name="fragment_downloading_error_string">Network Error</string>
 </resources>

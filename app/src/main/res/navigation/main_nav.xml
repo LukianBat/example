@@ -28,4 +28,16 @@
             android:id="@+id/action_startFragment_to_mainFragment"
             app:destination="@id/mainFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/calculatingFragment"
+        android:name="com.movavi.android.geophysics.presentation.calculating.CalculatingFragment"
+        android:label="CalculatingFragment" />
+    <fragment
+        android:id="@+id/downloadingFragment"
+        android:name="com.movavi.android.geophysics.presentation.downloading.DownloadingFragment"
+        android:label="DownloadingFragment" />
+    <fragment
+        android:id="@+id/downloadingErrorFragment"
+        android:name="com.movavi.android.geophysics.presentation.downloading.DownloadingErrorFragment"
+        android:label="DownloadingErrorFragment" />
 </navigation>
