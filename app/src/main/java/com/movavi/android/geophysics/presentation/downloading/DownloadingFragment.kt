@@ -25,17 +25,22 @@ class DownloadingFragment : Fragment() {
     private lateinit var viewModel: DownloadingViewModel
     private lateinit var sharedViewModel: SharedViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_downloading,
-            container,false)
+            container, false
+        )
 
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
         viewModel = ViewModelProviders.of(this).get(DownloadingViewModel::class.java)
 
+        // получение списка скважин из viewmodel и передеча в sharedViewModel
+        // на эмуляторе не грузится конфиг - поэтому стоит лог
         viewModel.listData.observe(this, Observer {
             // TODO debug delete
             Log.d("DEBUG", it.toString())
@@ -45,9 +50,11 @@ class DownloadingFragment : Fragment() {
             }
         })
 
+        // обработка ошибок загрузки файлов
         viewModel.netError.observe(this, Observer {
-            if(it) {
-                this.findNavController().navigate(R.id.action_downloadingFragment_to_downloadingErrorFragment)
+            if (it) {
+                this.findNavController()
+                    .navigate(R.id.action_downloadingFragment_to_downloadingErrorFragment)
             }
         })
 
