@@ -2,6 +2,7 @@ package com.movavi.android.geophysics.presentation.downloading
 
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -36,6 +37,8 @@ class DownloadingFragment : Fragment() {
         viewModel = ViewModelProviders.of(this).get(DownloadingViewModel::class.java)
 
         viewModel.listData.observe(this, Observer {
+            // TODO debug delete
+            Log.d("DEBUG", it.toString())
             if (it.size > 0) {
                 sharedViewModel.initialData.value = it
                 this.findNavController().navigate(R.id.action_downloadingFragment_to_mainFragment)

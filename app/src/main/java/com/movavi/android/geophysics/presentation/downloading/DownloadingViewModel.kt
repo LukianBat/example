@@ -25,19 +25,14 @@ class DownloadingViewModel : ViewModel() {
     private val loader: NetLoader = ApiFactory.createApi()
 
     init {
-        loadDataFromFile()
         _netError.value = false
-    }
-
-    fun loadingFinished(holes: ArrayList<Hole>) {
-        _listData.value = holes
-
+        loadDataFromFile()
     }
 
     private fun loadDataFromFile() {
         loader.getConfig().enqueue(object : Callback<Config> {
             override fun onFailure(call: Call<Config>, t: Throwable) {
-                Log.d("DEBUG", "error downloading")
+                Log.d("DEBUG", "error downloading ${t.message}")
                 _netError.value = true
             }
 
@@ -47,5 +42,9 @@ class DownloadingViewModel : ViewModel() {
                 }
             }
         })
+    }
+
+    fun loadingFinished(holes: ArrayList<Hole>) {
+        _listData.value = holes
     }
 }

@@ -12,147 +12,26 @@
         android:layout_margin="@dimen/sm_margin"
         >
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/main_load_container"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/start_dat_recycler"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
+            android:layout_height="match_parent"
             app:layout_constraintTop_toTopOf="parent"
-            style="@style/CardViewStyle"
-            >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:id="@+id/main_load_txt"
-                    style="@style/MainText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:text="@string/main_load_string"
-                    />
-
-                <ProgressBar
-                    android:id="@+id/main_load_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    />
-
-                <ImageView
-                    android:id="@+id/main_load_done_image"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:contentDescription="@string/main_result_done_desc"
-                    android:visibility="invisible"
-                    style="@style/ImageDone"
-                    />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/main_calc_container"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_load_container"
-            app:cardBackgroundColor="@color/colorGrey"
-            style="@style/CardViewStyle"
-            >
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                >
-
-                <TextView
-                    android:id="@+id/main_calc_txt"
-                    style="@style/MainText"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginLeft="16dp"
-                    android:text="@string/main_calc_string"
-                    />
-
-                <ProgressBar
-                    android:id="@+id/main_calc_progress"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:visibility="invisible"
-                    />
-
-                <ImageView
-                    android:id="@+id/main_calc_done_image"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginRight="16dp"
-                    android:contentDescription="@string/main_result_done_desc"
-                    android:visibility="invisible"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.0"
-                    tools:src="@drawable/ic_check_green"
-                    style="@style/ImageDone"
-                    />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
+            app:layout_constraintTop_toBottomOf="@+id/main_btn_result"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"
+            />
 
         <Button
             android:id="@+id/main_btn_result"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:enabled="true"
+            android:text="@string/main_result_btn_text"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/main_calc_container"
-            android:layout_marginTop="@dimen/st_margin"
-            android:enabled="false"
-            android:text="@string/main_result_btn_text"
             />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/start_dat_recycler"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/main_btn_result"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_behavior="@string/appbar_scrolling_view_behavior"
-                android:layout_marginTop="@dimen/st_margin"
-                />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
