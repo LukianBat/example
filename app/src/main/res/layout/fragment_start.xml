@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".presentation.result.ResultFragment"
+    tools:context=".presentation.start.StartFragment"
     >
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -47,7 +47,6 @@
             app:layout_constraintVertical_bias="0.13999999"
             android:text="@string/start_btn_string"
             />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
