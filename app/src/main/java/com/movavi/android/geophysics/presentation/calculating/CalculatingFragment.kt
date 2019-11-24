@@ -38,13 +38,17 @@ class CalculatingFragment : Fragment() {
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
         viewModel = ViewModelProviders.of(this).get(CalculatingViewModel::class.java)
 
+        // получение исходных данных и передача на математику
         sharedViewModel.initialData.observe(this, Observer {
             viewModel.calculate(it)
         })
 
+        // сохранение результатов и переход на соответствуюший fragment
         viewModel.isReady.observe(this, Observer {
-            sharedViewModel.results.value = viewModel.listResult.value
-            this.findNavController().navigate(R.id.action_calculatingFragment_to_resultFragment)
+            if (it) {
+                sharedViewModel.results.value = viewModel.listResult.value
+                this.findNavController().navigate(R.id.action_calculatingFragment_to_resultFragment)
+            }
         })
 
         return binding.root
