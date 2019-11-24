@@ -9,12 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.core.SharedViewModel
-import com.movavi.android.geophysics.data.ResultsAdapter
 import com.movavi.android.geophysics.databinding.FragmentCalculatingBinding
-import com.movavi.android.geophysics.databinding.FragmentResultBinding
 
 /**
  * Fragment for calculating animation.
@@ -24,16 +22,30 @@ class CalculatingFragment : Fragment() {
     private lateinit var binding: FragmentCalculatingBinding
 
     private lateinit var sharedViewModel: SharedViewModel
+    private lateinit var viewModel: CalculatingViewModel
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_calculating,
-            container,false)
+            container, false
+        )
 
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(CalculatingViewModel::class.java)
+
+        sharedViewModel.initialData.observe(this, Observer {
+            viewModel.calculate(it)
+        })
+
+        viewModel.isReady.observe(this, Observer {
+            sharedViewModel.results.value = viewModel.listResult.value
+            this.findNavController().navigate(R.id.action_calculatingFragment_to_resultFragment)
+        })
 
         return binding.root
     }
