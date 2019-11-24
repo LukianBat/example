@@ -9,12 +9,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.navigation.fragment.findNavController
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.core.SharedViewModel
-import com.movavi.android.geophysics.data.ResultsAdapter
 import com.movavi.android.geophysics.databinding.FragmentDownloadingBinding
-import com.movavi.android.geophysics.databinding.FragmentResultBinding
 
 /**
  * Fragment for downloading animation.
@@ -23,6 +21,7 @@ class DownloadingFragment : Fragment() {
 
     private lateinit var binding: FragmentDownloadingBinding
 
+    private lateinit var viewModel: DownloadingViewModel
     private lateinit var sharedViewModel: SharedViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -34,6 +33,20 @@ class DownloadingFragment : Fragment() {
             container,false)
 
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(DownloadingViewModel::class.java)
+
+        viewModel.listData.observe(this, Observer {
+            if (it.size > 0) {
+                sharedViewModel.initialData.value = it
+                this.findNavController().navigate(R.id.action_downloadingFragment_to_mainFragment)
+            }
+        })
+
+        viewModel.netError.observe(this, Observer {
+            if(it) {
+                this.findNavController().navigate(R.id.action_downloadingFragment_to_downloadingErrorFragment)
+            }
+        })
 
         return binding.root
     }
