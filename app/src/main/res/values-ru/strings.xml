@@ -11,4 +11,5 @@
     <string name="start_logo_desc">Стартовый логотип</string>
     <string name="main_result_done_desc">Задание завершено</string>
     <string name="fragment_calculating_string">Считаем…</string>
+    <string name="fragment_downloading_string">Загружаем…</string>
 </resources>

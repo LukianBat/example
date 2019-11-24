@@ -17,4 +17,5 @@
     <string name="result_item_regress_string">Regression equation:</string>
     <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
     <string name="fragment_calculating_string">Calculating…</string>
+    <string name="fragment_downloading_string">Downloading…</string>
 </resources>
