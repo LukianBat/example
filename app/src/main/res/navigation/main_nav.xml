@@ -28,9 +28,6 @@
         android:name="com.movavi.android.geophysics.presentation.start.StartFragment"
         android:label="StartFragment" >
         <action
-            android:id="@+id/action_startFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-        <action
             android:id="@+id/action_startFragment_to_downloadingFragment"
             app:destination="@id/downloadingFragment" />
     </fragment>
