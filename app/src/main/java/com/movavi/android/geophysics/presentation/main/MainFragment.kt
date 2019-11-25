@@ -15,7 +15,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.core.SharedViewModel
-import com.movavi.android.geophysics.data.DataAdapter
+import com.movavi.android.geophysics.data.InitDataHolesAdapter
 import com.movavi.android.geophysics.databinding.FragmentMainBinding
 
 /**
@@ -43,7 +43,7 @@ class MainFragment : Fragment() {
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
         val mRecycler=binding.startDatRecycler
-        val mAdapter= DataAdapter()
+        val mAdapter= InitDataHolesAdapter()
         mRecycler.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
         mRecycler.adapter=mAdapter
 

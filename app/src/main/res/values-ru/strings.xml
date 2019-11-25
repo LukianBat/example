@@ -10,4 +10,9 @@
     <string name="result_item_regress_string">Уравнение регрессия:</string>
     <string name="start_logo_desc">Стартовый логотип</string>
     <string name="main_result_done_desc">Задание завершено</string>
+    <string name="rv_param_name">имя</string>
+    <string name="rv_param_type">тип</string>
+    <string name="rv_param_val">значение</string>
+    <string name="holes_rv_name">скважина #</string>
+    <string name="rv_hole_name">скважина</string>
 </resources>

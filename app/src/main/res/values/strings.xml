@@ -16,5 +16,9 @@
     <string name="result_item_corel_value" translatable="false">0.11</string>
     <string name="result_item_regress_string">Regression equation:</string>
     <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
-    <string name="title_activity_data">DataActivity</string>
+    <string name="rv_hole_name">hole</string>
+    <string name="rv_param_name">name</string>
+    <string name="rv_param_type">type</string>
+    <string name="rv_param_val">val</string>
+    <string name="holes_rv_name">hole #</string>
 </resources>
