@@ -28,7 +28,7 @@ class StartFragment : Fragment() {
             container,false)
 
         binding.startBtn.setOnClickListener {
-            this.findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+            this.findNavController().navigate(R.id.action_startFragment_to_downloadingFragment)
         }
 
         return binding.root

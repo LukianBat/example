@@ -8,9 +8,8 @@
         android:name="com.movavi.android.geophysics.presentation.main.MainFragment"
         android:label="MainFragment" >
         <action
-            android:id="@+id/action_mainFragment_to_resultFragment"
-            app:destination="@id/resultFragment"
-            app:popUpTo="@+id/startFragment" />
+            android:id="@+id/action_mainFragment_to_calculatingFragment"
+            app:destination="@id/calculatingFragment" />
     </fragment>
     <fragment
         android:id="@+id/resultFragment"
@@ -25,7 +24,37 @@
         android:name="com.movavi.android.geophysics.presentation.start.StartFragment"
         android:label="StartFragment" >
         <action
-            android:id="@+id/action_startFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
+            android:id="@+id/action_startFragment_to_downloadingFragment"
+            app:destination="@id/downloadingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculatingFragment"
+        android:name="com.movavi.android.geophysics.presentation.calculating.CalculatingFragment"
+        android:label="CalculatingFragment" >
+        <action
+            android:id="@+id/action_calculatingFragment_to_resultFragment"
+            app:destination="@id/resultFragment"
+            app:popUpTo="@+id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadingFragment"
+        android:name="com.movavi.android.geophysics.presentation.downloading.DownloadingFragment"
+        android:label="DownloadingFragment" >
+        <action
+            android:id="@+id/action_downloadingFragment_to_downloadingErrorFragment"
+            app:destination="@id/downloadingErrorFragment"
+            app:popUpTo="@+id/startFragment" />
+        <action
+            android:id="@+id/action_downloadingFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:popUpTo="@+id/startFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/downloadingErrorFragment"
+        android:name="com.movavi.android.geophysics.presentation.downloading.DownloadingErrorFragment"
+        android:label="DownloadingErrorFragment" >
+        <action
+            android:id="@+id/action_downloadingErrorFragment_to_startFragment"
+            app:destination="@id/startFragment" />
     </fragment>
 </navigation>

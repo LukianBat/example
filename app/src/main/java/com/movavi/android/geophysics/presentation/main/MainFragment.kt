@@ -52,18 +52,8 @@ class MainFragment : Fragment() {
         })
 
         // Загрузка завершена - данные выводим
-        viewModel.listData.observe(this, Observer {
+        sharedViewModel.initialData.observe(this, Observer {
             mAdapter.setList(it)
-        })
-
-        // подсчет окончен
-        viewModel.isReady.observe(this, Observer {
-            if (it) calculatingReady()
-        })
-
-        // заливка данных в общую viewmodel
-        viewModel.listResult.observe(this, Observer {
-            sharedViewModel.results.value = it
         })
 
         // переход к результатам
@@ -74,23 +64,9 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
-    // логика готовности оригинальных данных
-    private fun downloadFinished() {
-        binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
-        binding.mainCalcProgress.visibility = View.VISIBLE
-        binding.mainLoadContainer.visibility=View.GONE
-    }
-
-    // логика по готовности математики
-    private fun calculatingReady() {
-        binding.mainCalcProgress.visibility = View.GONE
-        binding.mainCalcDoneImage.visibility = View.VISIBLE
-        binding.mainBtnResult.isEnabled = true
-    }
-
     // данные готовы
     private fun openResult() {
         // открытие фрагмента с результатом
-        this.findNavController().navigate(R.id.action_mainFragment_to_resultFragment)
+        this.findNavController().navigate(R.id.action_mainFragment_to_calculatingFragment)
     }
 }

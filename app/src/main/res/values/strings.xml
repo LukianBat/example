@@ -16,6 +16,9 @@
     <string name="result_item_corel_value" translatable="false">0.11</string>
     <string name="result_item_regress_string">Regression equation:</string>
     <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
+    <string name="fragment_calculating_string">Calculating…</string>
+    <string name="fragment_downloading_string">Downloading…</string>
+    <string name="fragment_downloading_error_string">Network Error</string>
     <string name="rv_hole_name">hole</string>
     <string name="rv_param_name">name</string>
     <string name="rv_param_type">type</string>
