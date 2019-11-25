@@ -17,8 +17,8 @@ class CalculatingViewModel : ViewModel() {
     val isReady: LiveData<Boolean>
         get() = _isReady
 
-    private var _listResult = MutableLiveData<ArrayList<ResItem>>()
-    val listResult: LiveData<ArrayList<ResItem>>
+    private var _listResult = MutableLiveData<ArrayList<ArrayList<ResItem>>>()
+    val listResult: LiveData<ArrayList<ArrayList<ResItem>>>
         get() = _listResult
 
     private lateinit var timer: CountDownTimer
@@ -31,7 +31,7 @@ class CalculatingViewModel : ViewModel() {
         //for animation show (2 sec delay)
         timer = object : CountDownTimer(SEC_TWO, SEC_ONE) {
             override fun onFinish() {
-                calculatingFinished(GetResUseCase.getResList(list))
+                calculatingFinished(GetResUseCase.getFullResList(list))
             }
 
             override fun onTick(millisUntilFinished: Long) {
@@ -40,7 +40,7 @@ class CalculatingViewModel : ViewModel() {
         }.start()
     }
 
-    private fun calculatingFinished(resList: ArrayList<ResItem>) {
+    private fun calculatingFinished(resList: ArrayList<ArrayList<ResItem>>) {
         _listResult.value = resList
         _isReady.value = true
     }

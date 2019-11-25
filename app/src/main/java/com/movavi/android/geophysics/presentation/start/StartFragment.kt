@@ -2,13 +2,12 @@ package com.movavi.android.geophysics.presentation.start
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.databinding.FragmentStartBinding
 

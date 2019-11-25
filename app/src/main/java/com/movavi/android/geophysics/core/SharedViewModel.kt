@@ -2,6 +2,7 @@ package com.movavi.android.geophysics.core
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.movavi.android.geophysics.data.model.Hole
 
 class SharedViewModel : ViewModel() {
     /**

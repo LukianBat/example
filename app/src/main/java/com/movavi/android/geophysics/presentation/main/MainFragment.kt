@@ -46,11 +46,6 @@ class MainFragment : Fragment() {
         mRecycler.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
         mRecycler.adapter=mAdapter
 
-        // Загрузка завершена
-        viewModel.isDownloadFinished.observe(this, Observer {
-            if (it) downloadFinished()
-        })
-
         // Загрузка завершена - данные выводим
         sharedViewModel.initialData.observe(this, Observer {
             mAdapter.setList(it)
