@@ -19,13 +19,10 @@ class InitDataHolesAdapter : RecyclerView.Adapter<InitDataHolesAdapter.ViewHolde
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        //Create viewHolder etc
-//        holder.innerRecyclerView.setRecycledViewPool(viewPool);
         //получаем все параметры для данной скважины
         val hole = listHoles[position]
 
-        // TODO get string from resources
-        holder.text.text = "${position + 1} hole"
+        holder.text.text = holder.itemView.context.getString(R.string.rv_hole_name,(position + 1).toString())
         val childLayoutManager =
             LinearLayoutManager(holder.recyclerView.context, RecyclerView.HORIZONTAL, false)
         childLayoutManager.initialPrefetchItemCount = 5

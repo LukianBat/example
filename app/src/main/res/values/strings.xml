@@ -19,9 +19,8 @@
     <string name="fragment_calculating_string">Calculating…</string>
     <string name="fragment_downloading_string">Downloading…</string>
     <string name="fragment_downloading_error_string">Network Error</string>
-    <string name="rv_hole_name">hole</string>
+    <string name="rv_hole_name">%1$s hole</string>
     <string name="rv_param_name">name</string>
     <string name="rv_param_type">type</string>
     <string name="rv_param_val">val</string>
-    <string name="holes_rv_name">hole #</string>
 </resources>

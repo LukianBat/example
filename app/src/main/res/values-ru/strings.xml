@@ -16,6 +16,5 @@
     <string name="rv_param_name">имя</string>
     <string name="rv_param_type">тип</string>
     <string name="rv_param_val">значение</string>
-    <string name="holes_rv_name">скважина #</string>
-    <string name="rv_hole_name">скважина</string>
+    <string name="rv_hole_name">%1$s скважина</string>
 </resources>
