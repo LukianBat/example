@@ -4,6 +4,7 @@ import com.movavi.android.geophysics.data.model.Hole
 import java.math.RoundingMode
 import java.text.DecimalFormat
 
+const val NO_SKIP: Int = -1
 class GetResUseCase {
 
     companion object {
@@ -14,16 +15,16 @@ class GetResUseCase {
          */
         fun getFullResList(holes: ArrayList<Hole>): ArrayList<ArrayList<ResItem>> {
             val resList = ArrayList<ArrayList<ResItem>>()
-            for(j in holes.indices){
-                resList.add(ArrayList())
-            }
             return getPartialResList(holes, resList)
         }
 
         private fun getPartialResList(holes: ArrayList<Hole>, list: ArrayList<ArrayList<ResItem>>): ArrayList<ArrayList<ResItem>> {
-            for (i in -1 until holes.size){
+            for (i in NO_SKIP until holes.size){
                 val resList: List<ResItem> = getPartialResListSkip(holes, i)
                 for(j in resList.indices){
+                    if (i == NO_SKIP){
+                        list.add(ArrayList())
+                    }
                     list[j].add(resList[j])
                 }
             }
