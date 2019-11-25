@@ -1,5 +1,6 @@
 package com.movavi.android.geophysics.presentation.downloading
 
+import android.annotation.SuppressLint
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -8,11 +9,16 @@ import com.movavi.android.geophysics.data.ApiFactory
 import com.movavi.android.geophysics.data.NetLoader
 import com.movavi.android.geophysics.data.model.Config
 import com.movavi.android.geophysics.data.model.Hole
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import io.reactivex.Single
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.rxkotlin.zipWith
+import java.util.*
+import kotlin.collections.ArrayList
+import kotlin.math.sin
 
 class DownloadingViewModel : ViewModel() {
+
+    val urlList = MutableLiveData<ArrayList<String>>()
 
     private var _listData = MutableLiveData<ArrayList<Hole>>()
     val listData: LiveData<ArrayList<Hole>>
@@ -26,22 +32,36 @@ class DownloadingViewModel : ViewModel() {
 
     init {
         _netError.value = false
-        loadDataFromFile()
+        urlList.observeForever {
+            loadDataFromFile(it)
+        }
+
     }
 
-    private fun loadDataFromFile() {
-        loader.getConfig().enqueue(object : Callback<Config> {
-            override fun onFailure(call: Call<Config>, t: Throwable) {
-                Log.d("DEBUG", "error downloading ${t.message}")
-                _netError.value = true
-            }
+    @SuppressLint("CheckResult")
+    private fun loadDataFromFile(urlList: ArrayList<String>) {
+        val singles = urlList.map {
+            loader.getConfig(it)
+        }
+        val holes = arrayListOf<Hole>()
+        Single
+            .concat(singles)
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
 
-            override fun onResponse(call: Call<Config>, response: Response<Config>) {
-                response.body()?.let {
-                    loadingFinished(it.holes)
+                {
+                    Log.i("TAG", it.holes.size.toString())
+                    holes.addAll(it.holes)
+                },
+                {
+
+                },
+                {
+                    loadingFinished(holes)
                 }
-            }
-        })
+
+            )
+
     }
 
     fun loadingFinished(holes: ArrayList<Hole>) {

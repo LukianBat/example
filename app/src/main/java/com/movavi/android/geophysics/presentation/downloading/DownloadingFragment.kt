@@ -38,6 +38,10 @@ class DownloadingFragment : Fragment() {
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
         viewModel = ViewModelProviders.of(this).get(DownloadingViewModel::class.java)
 
+        //Передача списка url в [viewModel]
+        viewModel.urlList.value = sharedViewModel.urlList.value as ArrayList<String>
+
+
         // получение списка скважин из viewmodel и передеча в sharedViewModel
         viewModel.listData.observe(this, Observer {
             if (it.size > 0) {

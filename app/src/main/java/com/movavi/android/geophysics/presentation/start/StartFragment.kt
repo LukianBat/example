@@ -65,7 +65,7 @@ class StartFragment : Fragment() {
                 }
             }
             sharedViewModel.urlList.value = list as ArrayList<String>
-            this.findNavController().navigate(R.id.action_startFragment_to_mainFragment)
+            this.findNavController().navigate(R.id.action_startFragment_to_downloadingFragment)
         }
         binding.fab.setOnClickListener {
             adapter.addList(UrlModel(""))
