@@ -13,9 +13,8 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.movavi.android.geophysics.R
-import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.core.SharedViewModel
-import com.movavi.android.geophysics.data.DataAdapter
+import com.movavi.android.geophysics.data.InitDataHolesAdapter
 import com.movavi.android.geophysics.databinding.FragmentMainBinding
 
 /**
@@ -43,28 +42,13 @@ class MainFragment : Fragment() {
         sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
         val mRecycler=binding.startDatRecycler
-        val mAdapter= DataAdapter()
+        val mAdapter= InitDataHolesAdapter()
         mRecycler.layoutManager=LinearLayoutManager(activity,LinearLayoutManager.VERTICAL,false)
         mRecycler.adapter=mAdapter
 
-        // Загрузка завершена
-        viewModel.isDownloadFinished.observe(this, Observer {
-            if (it) downloadFinished()
-        })
-
         // Загрузка завершена - данные выводим
-        viewModel.listData.observe(this, Observer {
+        sharedViewModel.initialData.observe(this, Observer {
             mAdapter.setList(it)
-        })
-
-        // подсчет окончен
-        viewModel.isReady.observe(this, Observer {
-            if (it) calculatingReady()
-        })
-
-        // заливка данных в общую viewmodel
-        viewModel.listResult.observe(this, Observer {
-            sharedViewModel.results.value = it as ArrayList<ResItem>
         })
 
         // переход к результатам
@@ -75,23 +59,9 @@ class MainFragment : Fragment() {
         return binding.root
     }
 
-    // логика готовности оригинальных данных
-    private fun downloadFinished() {
-        binding.mainCalcContainer.setCardBackgroundColor(Color.WHITE)
-        binding.mainCalcProgress.visibility = View.VISIBLE
-        binding.mainLoadContainer.visibility=View.GONE
-    }
-
-    // логика по готовности математики
-    private fun calculatingReady() {
-        binding.mainCalcProgress.visibility = View.GONE
-        binding.mainCalcDoneImage.visibility = View.VISIBLE
-        binding.mainBtnResult.isEnabled = true
-    }
-
     // данные готовы
     private fun openResult() {
         // открытие фрагмента с результатом
-        this.findNavController().navigate(R.id.action_mainFragment_to_resultFragment)
+        this.findNavController().navigate(R.id.action_mainFragment_to_calculatingFragment)
     }
 }

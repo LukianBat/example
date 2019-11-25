@@ -1,14 +1,14 @@
 package com.movavi.android.geophysics.data
 
 import com.movavi.android.geophysics.data.model.Config
+import io.reactivex.Single
 import retrofit2.Call
 import retrofit2.http.GET
+import retrofit2.http.Url
 
 interface NetLoader {
-    @GET(SUB_URL)
-    fun getConfig(): Call<Config>
 
-    companion object {
-        private const val SUB_URL = "android/geo.json"
-    }
+    @GET
+    fun getConfig(@Url url: String): Single<Config>
+
 }

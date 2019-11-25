@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Movavi Geophysics</string>
+    <string name="app_name" translatable="false">Movavi Geophysics</string>
     <string name="main_load_string">Loading</string>
     <string name="main_calc_string">Calculating</string>
     <string name="main_result_btn_text">Result</string>
@@ -8,13 +8,24 @@
     <string name="start_btn_string">Start</string>
 
     <!--Result fragment-->
-    <string name="result_fragment_title">Result</string>
 
     <!--item-->
     <string name="result_item_name_string" translatable="false">Value Name</string>
-    <string name="result_item_corel_string">Corelation^2:</string>
+    <string name="result_item_corel_string">Correlation^2:</string>
     <string name="result_item_corel_value" translatable="false">0.11</string>
     <string name="result_item_regress_string">Regression equation:</string>
     <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
-    <string name="title_activity_data">DataActivity</string>
+    <string name="url_error">no valid url</string>
+    <string name="empty_error">empty url</string>
+    <string name="result_item_all_string">-%1$d. Correlation^2: %2$s \nRegression equation: \n%3$s \n</string>
+    <string name="fragment_calculating_string">Calculating…</string>
+    <string name="fragment_downloading_string">Downloading…</string>
+    <string name="fragment_downloading_error_string">Network Error</string>
+    <string name="rv_hole_name">%1$s hole</string>
+    <string name="rv_param_name">name</string>
+    <string name="rv_param_type">type</string>
+    <string name="rv_param_val">val</string>
+    <string name="base_url">https://vincetti.ru/android/geo.json</string>
+    <string name="url">Input urls of sources</string>
+    <string name="url_hint" translatable="false">URL</string>
 </resources>

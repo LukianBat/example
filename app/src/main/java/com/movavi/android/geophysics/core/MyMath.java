@@ -10,7 +10,7 @@ import java.util.List;
 public class MyMath {
 
     // округлятель
-    private static DecimalFormat df =new DecimalFormat("#.###");
+    private static final DecimalFormat df =new DecimalFormat("#.###");
 
     /*
      * Метод, возвращающий сумму коллекции *

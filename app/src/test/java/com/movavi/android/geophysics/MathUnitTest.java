@@ -13,8 +13,8 @@ import java.util.List;
  * парам2 - парам1 - рассчет
  */
 public class MathUnitTest {
-    private List<Double> listX = new ArrayList<>();
-    private List<Double> listY = new ArrayList<>();
+    private final List<Double> listX = new ArrayList<>();
+    private final List<Double> listY = new ArrayList<>();
 
     @Before
     public void setUpX() {
