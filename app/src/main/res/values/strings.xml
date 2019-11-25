@@ -16,6 +16,8 @@
     <string name="result_item_corel_value" translatable="false">0.11</string>
     <string name="result_item_regress_string">Regression equation:</string>
     <string name="result_item_regress_value" translatable="false">0.11x + 155</string>
+    <string name="url_error">no valid url</string>
+    <string name="empty_error">empty url</string>
     <string name="result_item_all_string">-%1$d. Correlation^2: %2$s \nRegression equation: \n%3$s \n</string>
     <string name="fragment_calculating_string">Calculating…</string>
     <string name="fragment_downloading_string">Downloading…</string>

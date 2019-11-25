@@ -9,6 +9,7 @@ class SharedViewModel : ViewModel() {
      * Объект для обмена результатов подсчёта между фрагментами
      * [ResItem] - объект содержащий в себе набор имён зависимых параметров, значение корреляции и уравнение регрессии.
      */
+    val urlList = MutableLiveData<ArrayList<String>>()
     val results = MutableLiveData<ArrayList<ArrayList<ResItem>>>()
     val initialData = MutableLiveData<ArrayList<Hole>>()
 }

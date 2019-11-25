@@ -16,4 +16,6 @@
     <string name="rv_param_val">значение</string>
     <string name="rv_hole_name">%1$s скважина</string>
     <string name="result_item_all_string">-%1$d. Корреляция^2: %2$s \nУравнение регрессии: \n%3$s \n</string>
+    <string name="url_error">Не валидный url</string>
+    <string name="empty_error">Нет url</string>
 </resources>
