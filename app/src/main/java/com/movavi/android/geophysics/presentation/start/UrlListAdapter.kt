@@ -3,7 +3,6 @@ package com.movavi.android.geophysics.presentation.start
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.databinding.ItemUrlBinding
@@ -11,6 +10,13 @@ import com.movavi.android.geophysics.databinding.ItemUrlBinding
 class UrlListAdapter : RecyclerView.Adapter<UrlListAdapter.ViewHolder>() {
 
     private var urlList: ArrayList<UrlModel> = arrayListOf()
+
+    fun addBaseUrl(url: UrlModel) {
+        if (urlList.isEmpty()) {
+            this.urlList.add(url)
+            notifyDataSetChanged()
+        }
+    }
 
     fun addList(url: UrlModel) {
         this.urlList.add(url)

@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name"
-        translatable="false">Movavi Geophysics</string>
+    <string name="app_name" translatable="false">Movavi Geophysics</string>
     <string name="main_load_string">Loading</string>
     <string name="main_calc_string">Calculating</string>
     <string name="main_result_btn_text">Result</string>
@@ -26,4 +25,7 @@
     <string name="rv_param_name">name</string>
     <string name="rv_param_type">type</string>
     <string name="rv_param_val">val</string>
+    <string name="base_url">https://vincetti.ru/android/geo.json</string>
+    <string name="url">Input urls of sources</string>
+    <string name="url_hint" translatable="false">URL</string>
 </resources>

@@ -1,20 +1,14 @@
 package com.movavi.android.geophysics.presentation.downloading
 
 import android.annotation.SuppressLint
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.movavi.android.geophysics.data.ApiFactory
 import com.movavi.android.geophysics.data.NetLoader
-import com.movavi.android.geophysics.data.model.Config
 import com.movavi.android.geophysics.data.model.Hole
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxkotlin.zipWith
-import java.util.*
-import kotlin.collections.ArrayList
-import kotlin.math.sin
 
 class DownloadingViewModel : ViewModel() {
 
@@ -50,11 +44,10 @@ class DownloadingViewModel : ViewModel() {
             .subscribe(
 
                 {
-                    Log.i("TAG", it.holes.size.toString())
                     holes.addAll(it.holes)
                 },
                 {
-
+                    _netError.postValue(true)
                 },
                 {
                     loadingFinished(holes)

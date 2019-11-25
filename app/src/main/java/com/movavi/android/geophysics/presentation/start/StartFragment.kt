@@ -2,17 +2,16 @@ package com.movavi.android.geophysics.presentation.start
 
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.webkit.URLUtil
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.snackbar.Snackbar
-
 import com.movavi.android.geophysics.R
 import com.movavi.android.geophysics.core.SharedViewModel
 import com.movavi.android.geophysics.databinding.FragmentStartBinding
@@ -73,7 +72,6 @@ class StartFragment : Fragment() {
         val layoutManager = LinearLayoutManager(activity)
         binding.urlRecycler.adapter = adapter
         binding.urlRecycler.layoutManager = layoutManager
-        adapter.addList(UrlModel("https://vincetti.ru/android/geo.json"))
-        adapter.addList(UrlModel("https://vincetti.ru/android/geo.json"))
+        adapter.addBaseUrl(UrlModel(getString(R.string.base_url)))
     }
 }

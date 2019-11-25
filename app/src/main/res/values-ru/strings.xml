@@ -18,4 +18,6 @@
     <string name="result_item_all_string">-%1$d. Корреляция^2: %2$s \nУравнение регрессии: \n%3$s \n</string>
     <string name="url_error">Не валидный url</string>
     <string name="empty_error">Нет url</string>
+    <string name="base_url">https://vincetti.ru/android/geo.json</string>
+    <string name="url">Введите url источников</string>
 </resources>
