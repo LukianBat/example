@@ -13,7 +13,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.movavi.android.geophysics.R
-import com.movavi.android.geophysics.core.ResItem
 import com.movavi.android.geophysics.core.SharedViewModel
 import com.movavi.android.geophysics.data.InitDataHolesAdapter
 import com.movavi.android.geophysics.databinding.FragmentMainBinding
@@ -64,7 +63,7 @@ class MainFragment : Fragment() {
 
         // заливка данных в общую viewmodel
         viewModel.listResult.observe(this, Observer {
-            sharedViewModel.results.value = it as ArrayList<ResItem>
+            sharedViewModel.results.value = it
         })
 
         // переход к результатам

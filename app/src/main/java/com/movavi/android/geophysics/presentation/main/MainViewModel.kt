@@ -24,8 +24,8 @@ class MainViewModel : ViewModel() {
     val isReady: LiveData<Boolean>
         get() = _isReady
 
-    private var _listResult = MutableLiveData<List<ResItem>>()
-    val listResult: LiveData<List<ResItem>>
+    private var _listResult = MutableLiveData<ArrayList<ArrayList<ResItem>>>()
+    val listResult: LiveData<ArrayList<ArrayList<ResItem>>>
         get() = _listResult
 
     private var _listData = MutableLiveData<ArrayList<Hole>>()
@@ -44,11 +44,11 @@ class MainViewModel : ViewModel() {
     fun loadingFinished(holes: ArrayList<Hole>) {
         _isCalculating.value = true
         _listData.value = holes
-        calculatingFinished(GetResUseCase.getResList(Config(holes)))
+        calculatingFinished(GetResUseCase.getFullResList(holes))
 
     }
 
-    fun calculatingFinished(resList: List<ResItem>) {
+    private fun calculatingFinished(resList: ArrayList<ArrayList<ResItem>>) {
         _listResult.value = resList
         _isReady.value = true
     }
