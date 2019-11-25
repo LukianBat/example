@@ -26,10 +26,13 @@ class ResultsAdapter : RecyclerView.Adapter<ResultsAdapter.ViewHolder>() {
         holder.corel.text = listResults[position][0].corel.toString()
         holder.regress.text = listResults[position][0].regres
 
-        //TODO String to values!
         var tmpString = ""
         for (i in 1 until listResults[0].size){
-            tmpString += "-${i}: Corel: ${listResults[position][i].corel}\nRegression: ${listResults[position][i].regres}\n"
+            tmpString += holder.itemView.context.getString(R.string.result_item_all_string,
+                i,
+                listResults[position][i].corel.toString(),
+                listResults[position][i].regres
+            )
         }
         holder.partial.text = tmpString
     }
